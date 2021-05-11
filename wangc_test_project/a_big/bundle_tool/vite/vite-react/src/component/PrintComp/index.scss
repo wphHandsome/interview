@@ -1,0 +1,16 @@
+.print-comp {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+
+    .AFourSize {
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+    }
+}
