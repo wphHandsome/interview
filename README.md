@@ -47,3 +47,20 @@ Angular 我没用没写过 就没有问我这一类的问题
 
 
 项目 ： 必问 --- 在项目中遇到了哪些问题—如何解决的。（最好准备两到三个 一个浅一点的 一个深一点—用来回应面试官的追问）
+
+vue父子组件加载顺序
+这里vue的子组件引入有两中方式：同步和异步，因此父子组件加载的顺序
+
+是不一样的，接着往下看，会有收获的。
+
+一、 同步引入
+
+例子： import Page from '@/components/page'
+同步引入时生命周期顺序为：父组件的beforeCreate、created、beforeMount --> 所有子组件的beforeCreate、created、beforeMount --> 所有子组件的mounted --> 父组件的mounted
+
+二、异步引入
+
+例子：const Page = () => import('@/components/page')
+或者： const Page = resolve => require(['@/components/page'], page)
+
+异步引入时生命周期顺序：父组件的beforeCreate、created、beforeMount、mounted --> 子组件的beforeCreate、created、beforeMount、mounted
