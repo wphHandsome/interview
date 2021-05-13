@@ -56,3 +56,43 @@ vue父子组件加载顺序
 
 异步引入时生命周期顺序：父组件的beforeCreate、created、beforeMount、mounted --> 子组件的beforeCreate、created、beforeMount、mounted
 
+
+写一个方法    这个方法继承了Date上的方法
+
+函数怎么创建一个私有方法？
+这个函数私有的  实例访问不到
+
+extends是如何实现继承的，那么extends在babel中如何实现
+
+
+写一个方法  这个方法在调用的时候不用new也能调用实例方法
+function Day(date) {
+    if (!(this instanceof Day)) {
+        return new Day(date)
+    }
+}
+Day.prototype.getToday = function() {}
+
+
+手写promise
+
+async   await  实现
+
+generator实现
+
+Vue3为什么要用proxy，proxy有哪些api
+
+effect的作用
+
+Vue3的响应式和Vue2的创建响应式的区别
+
+vue3用到了 map  set  weakmap这些数据结果  他们的区别是什么，那weakmap有什么优势
+
+js数据类型，他们的区别（存放位置），引用数据类型中的key存在哪里的
+
+Vue3 的话   他会问如何实现ref响应式的
+
+虚拟dom和diff算法这种·
+
+
+有一个promise，不确定处于什么状态下，怎么判断这个状态？
