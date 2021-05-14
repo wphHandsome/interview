@@ -88,7 +88,7 @@ new MyPromise((resolve) => {
 ```
 
 
-###防抖
+### 防抖
 
 ```js
 function debounce(func, ms = 1000) {
@@ -110,7 +110,7 @@ window.addEventListener('scroll', debounceTask)
 ```
 
 
-###节流
+### 节流
 
 ```js
 function throttle(func, ms = 1000) {
