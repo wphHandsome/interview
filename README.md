@@ -107,17 +107,13 @@ Day.prototype.getToday = function() {}
 * 虚拟dom和diff算法这种·
 
 
-<<<<<<< HEAD
-有一个promise，不确定处于什么状态下，怎么判断这个状态？
-
-
-Vue中父子组件通信有哪些方式?
-Prop 常用（但是代码中的方式只适合prop里面的数值是原始类型，不能是对象类型，如果count是对象类型，需要进行深拷贝进行赋值，不然的话，改变number的数值，count的数值还是会改变的）
-$emit 组件封装用的较多
-.sync 语法糖  (较少)
-$attrs和$listeners(组件封装用的较多)
-provide和inject(高阶组件/组件库用的较多)
-其他方式通信
-=======
 * 有一个promise，不确定处于什么状态下，怎么判断这个状态？
->>>>>>> 9f29cc6c664c400cd2f21dd1d068873a992e8657
+
+
+## Vue中父子组件通信有哪些方式?
+* Prop 常用（但是代码中的方式只适合prop里面的数值是原始类型，不能是对象类型，如果count是对象类型，需要进行深拷贝进行赋值，不然的话，改变number的数值，count的数值还是会改变的）
+* $emit 组件封装用的较多
+* .sync 语法糖  (较少)
+* $attrs和$listeners(组件封装用的较多)
+* provide和inject(高阶组件/组件库用的较多)
+其他方式通信
