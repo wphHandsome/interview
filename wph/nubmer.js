@@ -1,16 +1,28 @@
-function DX(n) {
-    if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n))
-    return "数据非法";
-    var unit = "千百拾亿千百拾万千百拾元角分", str = "";
-    n += "00";
-    var p = n.indexOf('.');
-    if (p >= 0)
-    n = n.substring(0, p) + n.substr(p+1, 2);
-    unit = unit.substr(unit.length - n.length);
-    for (var i=0; i < n.length; i++)
-    str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
-    return str.replace(/零(千|百|拾|角)/g, "零").replace(/(零)+/g, "零").replace(/零(万|亿|元)/g, "$1").replace(/(亿)万|壹(拾)/g, "$1$2").replace(/^元零?|零分/g, "").replace(/元$/g, "元整");
+var a = [1,1,23,34,1]
+console.log(a.join(''))
+console.log(a.toString())
+
+function * all(a){
+  yield a+1
+  yield a+2
+  return a +3
 }
-  console.log(DX(10000000))     // 一
-  console.log(DX(12000))     // 二
-  console.log(DX(10)) 
+const abb = all(2)
+
+console.log(abb)
+
+function* foo(x) {
+  let a = yield x + 0;
+  let b= yield a + 2;
+  yield x; 
+  yield a 
+  yield b 
+}
+const result = foo(0)
+
+result.next() //  {value: 0, done: false}
+console.log(result.next(3) ,'11')
+result.next(2) // {value: 4, done: false}
+result.next(3) // {value: 0, done: false}
+result.next(4) // {value: 2, done: false}
+result.next(5) // {value: 3, done: false}
