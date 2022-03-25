@@ -34,6 +34,8 @@
 
 #### 如何用call实现apply，反之如何实现
 
+#### 写段代码看下宏任务和微任务执行顺序
+
 #### map定义的存储不到loacalstorage！对象中包含函数等的也存不进去locastorage
 * const obj = new Set([1,2,3]) 存不进localstorage
 

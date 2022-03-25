@@ -35,6 +35,40 @@
   return p 
 })
 
+* promiseALL(arr){
+    let result = []
+    return new Promise((resolve,reject) => {
+        if(arr.length === 0) resolve(result)
+        for(let i= 0;i<arr.length;i++){
+        if(typeof arr[i].then === 'function'){
+            arr[i].then(value => {
+            result.splice(i,0,value)
+            let result2 = Object.entries(result)
+            if(result2.length === arr.length) resolve(result)
+            },err=>{
+            console.log('第'+[i]+'失败了！')
+            reject(err)
+            })
+        }
+        }
+    })
+}
+* promiserace(arr){
+    return new Promise((resolve,reject) => {
+        arr.forEach(element => {
+            if(typeof element.then === 'function'){
+                element.then(value =>{
+                resolve(value)
+                },err => {
+                reject(err)
+                })
+            }
+        });
+    })
+}
+
+#####  promise 怎么取消请求
+* throw一个错误
 
 #### 6、async/await相比于Promise的优势？
 * 代码读起来更加同步，Promise虽然摆脱了回调地狱，但是then的链式调用也会带来额外的阅读负担

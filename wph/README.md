@@ -123,7 +123,13 @@
 }
 
 
+#### rem原理和计算过程
 
+#### 怎么控制跨域和不跨域，jsonp和iframe原理
+
+#### https加密解密过程
+
+#### 浏览器缓存，怎么告诉浏览器缓存那些东西的
 
 #### 文件上传如何实现？步骤流程？
 
@@ -136,5 +142,6 @@
 
 #### 学基础，mdn网站，地址：https://developer.mozilla.org/zh-CN/ 
 
+#### react fiber结构https://github.com/ManiacHanz/React-learning/blob/master/image/0%E3%80%81reactFiberRoot%E7%BB%93%E6%9E%84%E6%88%AA%E5%9B%BE.jpg
 
 
