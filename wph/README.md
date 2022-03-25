@@ -142,6 +142,6 @@
 
 #### 学基础，mdn网站，地址：https://developer.mozilla.org/zh-CN/ 
 
-#### react fiber结构https://github.com/ManiacHanz/React-learning/blob/master/image/0%E3%80%81reactFiberRoot%E7%BB%93%E6%9E%84%E6%88%AA%E5%9B%BE.jpg
+#### react fiber结构:https://github.com/ManiacHanz/React-learning/blob/master/image/0%E3%80%81reactFiberRoot%E7%BB%93%E6%9E%84%E6%88%AA%E5%9B%BE.jpg
 
 
