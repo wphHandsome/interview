@@ -21,6 +21,15 @@
 
 #### css3的新属性，H5新属性，都用过哪些。
 
+#### 实现三角形的css
+* css transparent是一种全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值；是用来指定全透明色彩的。
+* width: 0;
+* height: 0;
+* border-top: 40px solid transparent;
+* border-left: 40px solid transparent;
+* border-right: 40px solid transparent;
+* border-bottom: 40px solid blue;
+
 
 #### PC端 移动端的常用布局方式  每种方式的优缺点
 ##### 固定布局是第一次做移动端时最好的选择方式,思路沿用PC端,上手比较快
@@ -120,10 +129,11 @@
     - 继承
     - 变量
     - 函数
-  - 支持框架的特性
+  - 支持框架的特性f
     - 传值特性
 
   #### css module就是把css写在不同的文件中，最后通过webpack构建工具合并成一个文件。多个不同的文件有相同的类名，合并之后没有冲突的类名。
   * 在webpack中，我们使用css-loader来处理css文件，它就实现了css module的思想（css-loader使用在webpack常用插件中有讲述）。要启用css module，需要将css-loader的配置modules设置为true。
   * css module原理非常简单，css-loader会将样式中的类名进行转换，转换为一个唯一的hash值。由于hash值是根据模块路径和类名生成的，因此，不同的css模块，哪怕具有相同的类名，转换后的hash值也不一样。
   
+

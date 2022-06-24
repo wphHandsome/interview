@@ -46,26 +46,6 @@
     * Nginx 实现原理类似于 Node 中间件代理，需要你搭建一个中转 nginx 服务器，用于转发请求。
 
 
-### 深入理解http/https之缓存
-* 缓存会根据请求保存输出内容的副本，例如html页面，图片，文件，当下一个请求来到的时候：如果是相同的URL，缓存直接使用副本响应访问请求，而不是向源服务器再次发送请求。
-* 浏览器缓存分为强缓存和协商缓存，浏览器加载一个页面的简单流程如下：
-* 浏览器先根据这个资源的http头信息来判断是否命中强缓存。如果命中则直接加在缓存中的资源，并不会将请求发送到服务器。
-* 如果未命中强缓存，则浏览器会将资源加载请求发送到服务器。服务器来判断浏览器本地缓存是否失效。若可以使用，则服务器并不会返回资源信息，浏览器继续从缓存加载资源。
-* 如果未命中协商缓存，则服务器会将完整的资源返回给浏览器，浏览器加载新资源，并更新缓存。
-
-#### 与缓存相关的http扩展消息头
-* Expires：指示响应内容过期的时间，格林威治时间GMT
-* Cache-Control：更细致的控制缓存的内容  max-age就是确定缓存的时间。
-* Last-Modified：响应中资源最后一次修改的时间
-* ETag：响应中资源的校验值，在服务器上某个时段是唯一标识的。
-* Date：服务器的时间
-* If-Modified-Since：客户端存取的该资源最后一次修改的时间，同Last-Modified。
-* If-None-Match：客户端存取的该资源的检验值，同ETag。
-
-### Web 缓存大致可以分为：数据库缓存、服务器端缓存（代理服务器缓存、CDN 缓存）、浏览器缓存。
-
-### 浏览器缓存也包含很多内容： HTTP 缓存、indexDB、cookie、localstorage 等等
-
 #### 实时获取数据有哪些方法
 * 通过轮询的方式和 websocket 方式
 * 采用 setTimeout 的方式，延迟1000ms 调用，当请求成功返回的时候，进行一个自调。
@@ -85,16 +65,6 @@
 * 优点：首屏加载较快，只加载本页使用的css、js，SEO优化好
 * 缺点：页面之间跳转慢
 
-#### 状态码301和302
-* 301 redirect: 301 代表永久性转移(Permanently Moved),301请求是可以缓存的， 即通过看status code，可以发现后面写着from cache。
-或者你把你的网页的名称从php修改为了html，这个过程中，也会发生永久重定向。s
-* 302 redirect: 302 代表暂时性转移(Temporarily Moved )，但是会在重定向的时候改变 method: 把 POST 改成 GET，于是有了 307;　比如未登陆的用户访问用户中心重定向到登录页面。
-访问404页面会重新定向到首页。 
-* 307 Temporary Redirect。临时重定向，在重定向时不会改变 method
-##### 重定向的应用：重定向(Redirect)就是通过各种方法将各种网络请求重新定个方向转到其它位置（如：网页重定向、域名的重定向、路由选择的变化也是对数据报文经由路径的一种重定向）。
-* 1）网站调整（如改变网页目录结构）；
-* 2）网页被移到一个新地址；（例如是手机端访问还是pc访问，重定向到不同地址）
-* 3）网页扩展名改变(如应用需要把.php改成.Html或.shtml)。
 
 #### 节流：在规定的单位时间段内，函数只能执行一次，在单位时间内多少触发，则只有一次有效
 * 应用：1、鼠标不断的点击，用节流来限制只在规定的单位时间内执行一次函数 2、滚轮事件, 不断的往下滚轮，比如滚动到底部加载数据
@@ -132,8 +102,11 @@
 #### 浏览器缓存，怎么告诉浏览器缓存那些东西的
 
 #### 文件上传如何实现？步骤流程？
+* https://github.com/ManiacHanz/frontend-interview-knowledge/tree/master/JS
 
 #### 登陆方案？
+* 不同域名下的单点登录，比如a.com和b.com；中间有一个sso平台，当a.com登陆了，那么就是sso平台登陆了，他将token带链接上重定向给a.com；当b.com去登录到sso，发现他本地缓存有token，就将token放在链接重定给他b.com，然后b.com去sso验证token有效，登陆
+* 同域名下的登陆，后端设置域名允许子域名访问，共用cookie
 
 
 #### 项目亮点，技术选型，前端工程化
@@ -145,3 +118,7 @@
 #### react fiber结构:https://github.com/ManiacHanz/React-learning/blob/master/image/0%E3%80%81reactFiberRoot%E7%BB%93%E6%9E%84%E6%88%AA%E5%9B%BE.jpg
 
 
+#### 禁止网页被别人嵌套在iframe中
+* Nginx主机方法： 在请求头里:X-Frame-Options:SAMEORIGIN;如果有这项，表示不允许跨域嵌套。
+* JS方法：if(window.top !== window.self){ window.top.location = window.location;}  
+* Meta标签方法：<meta http-equiv="X-FRAME-OPTIONS" content="DENY">

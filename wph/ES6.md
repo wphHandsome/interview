@@ -70,6 +70,20 @@
 #####  promise 怎么取消请求
 * throw一个错误
 
+##### 如何中断promise
+* 中断promise链的方法只有一个，就是让then返回一个pending状态的promise，因为promise的状态没有改变，then方法就没办法执行。
+```
+p.then(value=>{
+	return new Promise((resolve,reject)=>{})
+}).then(value=>{
+	console.log(value)
+}).then(value=>{
+	console.log(value)
+})
+
+```
+
+
 #### 6、async/await相比于Promise的优势？
 * 代码读起来更加同步，Promise虽然摆脱了回调地狱，但是then的链式调用也会带来额外的阅读负担
 * Promise传递中间值非常麻烦，而async/await几乎是同步的写法，非常优雅
@@ -202,3 +216,7 @@ console.log(a,b,c)//1,2,3
 #### this指向问题
 * 在全局执行上下文中（在任何函数之外），this指的是全局对象，无论是否处于严格模式。
 * 函数内部,this取决于函数的调用方式。严格模式，this在进入执行上下文时没有设置的值，则它保持为undefined
+
+#### 类型BigInt
+
+

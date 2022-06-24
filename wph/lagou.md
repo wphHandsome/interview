@@ -57,3 +57,27 @@
 #### 一台服务器，部署了三个域名，接口请求如何知道请求的哪个？
 * 在Http1.1中根据接口请求的请求头host字段，会有域名
 * 在Http2中根据
+
+
+#### 什么时候用hover，什么时候用mouseEnter
+* hover一般只是用于简单的交互样式
+* mouseEnter用于动态交互
+
+#### 事件委托
+* vue举例
+```
+    <div class="bot"  @click="e =>weitio(111,e)">
+        <div class="botshow" v-for="(item,index) in 5" :key="item" :data-index='index'><p>{{index}}</p></div>
+    </div>
+```
+
+#### 原子性？？？
+
+#### URI？？？
+
+#### 三次挥手，四次握手？浏览器输入地址流程？https和http2
+
+#### 表格虚拟滚动？？？
+
+
+#### index.html要用协商缓存，不能用强缓存，不然每次上线要强刷
